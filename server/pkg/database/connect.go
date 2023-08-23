@@ -14,7 +14,7 @@ func connectToDB(uri string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI('mongodb://mongo:27001,mongo:27002,mongo:27003/go-server'))
 	if err != nil {
 		return err
 	}
